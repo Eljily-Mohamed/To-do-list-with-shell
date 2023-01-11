@@ -52,7 +52,7 @@ function banner (){
      do
 	  echo ''
      done
-     echo -en "\e[1m$USER\e[0m welcome in your to do list" 
+     echo -en "\e[1m\e[32m$USER\e[0m welcome in your to do list" 
      echo ''  
 }
 
@@ -74,7 +74,9 @@ function Edit (){
 }
 #fonction permet d'affiche to do list
 function Affiche_list(){
-      echo '' 
+      echo ''
+      echo "TO DO LIST :"
+       
 }
 #fonction qui permet de sauvgard le modification effectue sur le list si il exsite si no pas besoine de  appelle  cette methode
 function Sauvgard (){
