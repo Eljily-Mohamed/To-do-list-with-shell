@@ -77,7 +77,7 @@ function Affiche_list(){
       echo ''
       echo "TO DO LIST :"
       #fonction test l'exsitance de file todo list pour cette user
-      if[-d /opt/TODO/do$USER];
+      if [ -f "/opt/TODO/d$USER.txt" ];
       then
         echo "found"
       else 
@@ -98,6 +98,7 @@ function Exit(){
 function main (){
      printf "${welcome[*]}"
      banner
+     Affiche_list
 }
 
 main
