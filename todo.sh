@@ -52,7 +52,8 @@ function banner (){
      do
 	  echo ''
      done
-     GRN"$USER"$BLD"welcome in your to do list"   
+     echo -en "\e[1m$USER welcome in your to do list" 
+     echo ''  
 }
 
 #fonction qui help user a voir differnet options 
