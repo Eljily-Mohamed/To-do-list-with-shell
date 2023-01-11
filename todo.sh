@@ -125,7 +125,7 @@ function Delete(){
           else
           taskdelet=$(($nombre))
           #head -l (($taskdelet - 1)) do$USER.txt > do$USER.txt
-          head -$(($taskdelet -1)) do$USER.txt | grep -v ‘^$’ > do$USER.del.txt
+          head -$(($taskdelet -1)) do$USER.txt | sed '/^[[:space:]]*$/d' > do$USER.del.txt
           rm do$USER.txt 
           mv do$USER.del.txt do$USER.txt
           tail -$(($nombre - $taskdelet)) >> do$USER.del.txt
