@@ -57,35 +57,28 @@ function banner (){
 }
 #fonction permet  a user de choisie l'option 
 function choixOption(){
-    read "Commande (m pour l'aide) : "  choix
+    read -p "Commande (m pour l'aide) : "  reponse
     if [[ "$reponse" =~ ^([hH][eE][lL][pP]|[mM])$ ]]
     then
        helpf
-    fi
     elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
     then 
        Ajout
-    fi
     elif [[ "$reponse" =~ ^([dD][eE][lL][eE][tT]|[dD])$ ]]
     then 
        Delete
-    fi
     elif [[ "$reponse" =~ ^([rR][eE][aA][dD]|[rR])$ ]]
     then 
        Affiche_list
-    fi
     elif [[ "$reponse" =~ ^([eE][dD][iI][tT]|[eE])$ ]]
     then 
        Edit
-    fi
     elif [[ "$reponse" =~ ^([sS][aA][vV][eE]|[wW])$ ]]
     then 
        Sauvgard
-    fi
     elif [[ "$reponse" =~ ^([eE][xX][iI][tT]|[eE])$ ]]
     then 
        Exit
-    fi
     else
       echo "choisi option valide "
     fi
@@ -146,8 +139,7 @@ function Exit(){
 function main (){
      printf "${welcome[*]}"
      banner
-     Affiche_list
-     Ajout
+     choixOption
 }
 
 main
