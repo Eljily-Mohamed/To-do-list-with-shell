@@ -108,7 +108,7 @@ function Delete(){
       cd /opt/TODO/
       nombre=`wc -l doeljily.txt | cut -c1`
       read -p "Numéro de Task (1-$nombre, $nombre par défaut)" taskdelet
-      if [[ -z '$taskdelet' ]]
+      if [[ $taskdelet -eq '' ]]
       then
           taskdelet=$(($nombre))
           #head -l (($taskdelet - 1)) do$USER.txt > do$USER.txt
@@ -116,6 +116,7 @@ function Delete(){
       else 
           #head -(($taskdelet -1)) do$USER.txt > do$USER.txt
           #tail -(($nombre - $taskdelet - 1)) do$USER.txt >> do$USER.txt
+          echo $taskdelet
           echo "done"
       fi
 }
