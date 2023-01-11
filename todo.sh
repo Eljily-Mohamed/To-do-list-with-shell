@@ -47,18 +47,18 @@ welcome=(''
 
 banner (){
      for i in {1..5}
-     do 
-       echo ''
+     do
+	  echo ''
      done
-
-     echo "$USER welcome in your to do list " 
+     echo "$USER welcom in your to do list"   
 }
 
+#affiche bannner fonction 
 
-#fonction main point d'excution de programme
- function main (){
+# #fonction main point d'excution de programme
+function main (){
      printf "${welcome[*]}"
      banner 
- }
+}
 
-# main
+main
