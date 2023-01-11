@@ -1,7 +1,8 @@
 #!/bin/bash
 #affiche bannner fonction 
 function banner (){
-     echo " $USER welcome in the to do list
+     echo "$USER welcome in the to do list"
+     
 }
 
 
