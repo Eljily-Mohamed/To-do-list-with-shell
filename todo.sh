@@ -66,13 +66,17 @@ function choixOption(){
     then 
        Ajout
     fi
-    elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
+    elif [[ "$reponse" =~ ^([dD][eE][lL][eE][tT]|[dD])$ ]]
     then 
         Delete
     fi
-    elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
+    elif [[ "$reponse" =~ ^([rR][eE][aA][dD]|[rR])$ ]]
     then 
         Affiche_list
+    fi
+    elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
+    then 
+        Edit
     fi
     elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
     then 
@@ -82,7 +86,9 @@ function choixOption(){
     then 
         Exit
     fi
-
+    else
+      echo "choisi option valide "
+    fi
 }
 #fonction qui help user a voir differnet options 
 function helpf(){
