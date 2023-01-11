@@ -57,31 +57,31 @@ function banner (){
 
 #fonction qui help user a voir differnet options 
 function help(){
-
+   echo ''
 }
 #fonction permet d'ajouter une element dans le to do liste
 function Ajout(){
-
+   echo ''
 }
 #fonction permet de Supprime task qui exsite dans to do list avec le numero de task
 function Delet(){
-
+      echo ''
 }
 #fonction permet de modifie element sur to list 
 function Edit (){
-
+      echo ''
 }
 #fonction permet d'affiche to do list
 function Affiche_list(){
-       
+      echo '' 
 }
 #fonction qui permet de sauvgard le modification effectue sur le list si il exsite si no pas besoine de  appelle  cette methode
 function Sauvgard (){
-
+    echo ''
 }
 #fonction permet de sortire sans sauvgarde les modifications 
 function Exit(){
-
+    echo ''
 }
 
 # #fonction main point d'excution de programme
