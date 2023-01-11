@@ -64,8 +64,10 @@ function help(){
 function Ajout(){
     read -p "ajout title de votre task "
     #on doit sauvgard le nombres des lignes qui exsite dans le file
-    nbligne=`wc -l doeljily.txt`
-    for i in {$nbligne}
+    nombre=`wc -l doeljily.txt | cut -c1`
+    #apres on get nombre selment with commande cut
+    
+    for i in {0..4}
     do 
        echo "i = $i"
     done 
@@ -110,6 +112,7 @@ function main (){
      printf "${welcome[*]}"
      banner
      Affiche_list
+     Ajout
 }
 
 main
