@@ -81,6 +81,8 @@ function choixOption(){
        Exit
     else
       echo "choisi option valide "
+      sleep 2
+      main
     fi
 }
 #fonction qui help user a voir differnet options 
@@ -102,7 +104,17 @@ function Ajout(){
 }
 #fonction permet de Supprime task qui exsite dans to do list avec le numero de task
 function Delete(){
-      echo ''
+      #on doit delet taks donc on doit recupere l'emplecement de task
+      nombre=`wc -l doeljily.txt | cut -c1`
+      read -p "Numéro de partition (1-$nombre, $nombre par défaut)" taskdelet
+      if [[ -z '$taskdelet' ]]
+      then
+          taskdelet=$(($nombre))
+          head -(($taskdelet - 1)) do$USER.txt > do$USER.txt
+      else 
+          head -(($taskdelet -1)) do$USER.txt > do$USER.txt
+          tail -(($nombre - $taskdelet - 1)) do$USER.txt >> do$USER.txt
+      fi
 }
 #fonction permet de modifie element sur to list 
 function Edit (){
@@ -137,6 +149,7 @@ function Exit(){
 
 # #fonction main point d'excution de programme
 function main (){
+     clear
      printf "${welcome[*]}"
      banner
      choixOption
