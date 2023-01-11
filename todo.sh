@@ -91,6 +91,7 @@ function helpf(){
 }
 #fonction permet d'ajouter une element dans le to do liste
 function Ajout(){
+    cd /opt/TODO/
     read -p "ajout title de votre task "  task_title
     #on doit sauvgard le nombres des lignes qui exsite dans le file
     nombre=`wc -l doeljily.txt | cut -c1`
@@ -110,9 +111,14 @@ function Delete(){
       read -p "Numéro de Task (1-$nombre, $nombre par défaut)" taskdelet
       if [[ $taskdelet -eq '' ]]
       then
+          if [[ $nombre > '1']]
+          then
           taskdelet=$(($nombre))
+          else
+          taskdelet = (($nombre + 1))
+          fi
           #head -l (($taskdelet - 1)) do$USER.txt > do$USER.txt
-          head -$(($taskdelet -1 )) do$USER.txt > do$USER.txt
+          head -$(($taskdelet -1)) do$USER.txt #> do$USER.txt
       else 
           #head -(($taskdelet -1)) do$USER.txt > do$USER.txt
           #tail -(($nombre - $taskdelet - 1)) do$USER.txt >> do$USER.txt
