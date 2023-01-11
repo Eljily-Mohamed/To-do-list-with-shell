@@ -66,8 +66,7 @@ function Ajout(){
     #on doit sauvgard le nombres des lignes qui exsite dans le file
     nombre=`wc -l doeljily.txt | cut -c1`
     #apres on get nombre selment with commande cut
-    
-    for i in {0..4}
+    for i in {0..$(($nombre))}
     do 
        echo "i = $i"
     done 
