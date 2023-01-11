@@ -81,8 +81,7 @@ function Affiche_list(){
       then
         echo "found"
         cd /opt/TODO/
-        cat do$USER.txt
-        
+        cat do$USER.txt       
       else 
         echo "not found"
         cd /opt/TODO/
