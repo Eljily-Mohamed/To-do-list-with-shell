@@ -52,7 +52,7 @@ function banner (){
      do
 	  echo ''
      done
-     echo "$USER$BLD welcom in your to do list"   
+     GRN"$USER"$BLD"welcome in your to do list"   
 }
 
 #fonction qui help user a voir differnet options 
