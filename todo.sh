@@ -107,7 +107,7 @@ function Ajout(){
     else 
     cd /opt/TODO/
     touch do$USER.txt
-    echo "$task_title" >> do$USER.txt
+    echo "1-$task_title" >> do$USER.txt
     fi
 }
 #fonction permet de Supprime task qui exsite dans to do list avec le numero de task
@@ -128,7 +128,7 @@ function Delete(){
           head -$(($taskdelet -1)) do$USER.txt | grep -v ‘^$’ > do$USER.del.txt
           rm do$USER.txt 
           mv do$USER.del.txt do$USER.txt
-          tail -$(($nombre - ($taskdelet-1))) >> do$USER.del.txt
+          tail -$(($nombre - $taskdelet)) >> do$USER.del.txt
           fi
       else 
           #head -(($taskdelet -1)) do$USER.txt > do$USER.txt
