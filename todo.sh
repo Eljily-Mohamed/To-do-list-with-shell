@@ -46,7 +46,35 @@ welcome=(''
     
 )
 
-#fonction banner permet de specifie User qui lance script 
+#fonction banner permet de specifie User qui lance script
+function choixOption(){
+    read "Commande (m pour l'aide) : "  choix
+    if [[ "$reponse" =~ ^([hH][eE][lL][pP]|[mM])$ ]]
+    then
+       helpf
+    fi
+    elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
+    then 
+        ajouter
+    fi
+    elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
+    then 
+        ajouter
+    fi
+    elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
+    then 
+        ajouter
+    fi
+    elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
+    then 
+        ajouter
+    fi
+    elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
+    then 
+        ajouter
+    fi
+
+}
 function banner (){
      for i in {1..2}
      do
@@ -57,19 +85,21 @@ function banner (){
 }
 
 #fonction qui help user a voir differnet options 
-function help(){
+function helpf(){
     echo ''
 }
 #fonction permet d'ajouter une element dans le to do liste
 function Ajout(){
-    read -p "ajout title de votre task "
+    read -p "ajout title de votre task "  task_title
     #on doit sauvgard le nombres des lignes qui exsite dans le file
     nombre=`wc -l doeljily.txt | cut -c1`
+    nombreinsert=$(($nombre + 1))
     #apres on get nombre selment with commande cut
-    for  i in $( eval echo {0..$nombre} )
-    do 
-       echo "i = $i"
-    done 
+    # for  i in $( eval echo {0..$nombre} )
+    # do 
+    #    echo "i = $i"
+    # done 
+    echo "$nombreinsert-$task_title" >> do$USER.txt
 }
 #fonction permet de Supprime task qui exsite dans to do list avec le numero de task
 function Delet(){
