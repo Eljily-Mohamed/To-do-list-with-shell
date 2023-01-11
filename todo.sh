@@ -111,16 +111,17 @@ function Delete(){
       read -p "Numéro de Task (1-$nombre, $nombre par défaut)" taskdelet
       if [[ $taskdelet -eq '' ]]
       then
-          if [[ $nombre > '1' ]]
+          if [[ $nombre -eq '1' ]]
           then
           taskdelet=$(($nombre))
-          echo "" > do$USER.txt
+          rm do$USER.txt
           else
-          taskdelet=$(($nombre + 1))
+          taskdelet=$(($nombre))
           #head -l (($taskdelet - 1)) do$USER.txt > do$USER.txt
-          head -$(($taskdelet -1)) do$USER.txt >> do$USERdel.txt
+          head -$(($taskdelet -1)) do$USER.txt > do$USER.del.txt
           rm do$USER.txt 
-          mv do$USERdel.txt do$USER.txt
+          mv do$USER.del.txt do$USER.txt
+          tail -$(($nombre - $taskdelet -1)) >> do$USER.del.txt
           fi
       else 
           #head -(($taskdelet -1)) do$USER.txt > do$USER.txt
