@@ -82,8 +82,9 @@ function Affiche_list(){
         echo "found"
       else 
         echo "not found"
-      
+      fi 
 }
+
 #fonction qui permet de sauvgard le modification effectue sur le list si il exsite si no pas besoine de  appelle  cette methode
 function Sauvgard (){
     echo ''
