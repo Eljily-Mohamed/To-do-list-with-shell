@@ -45,20 +45,48 @@ welcome=(''
     
 )
 
-banner (){
-     for i in {1..3}
+#fonction banner permet de specifie User qui lance script 
+function banner (){
+     for i in {1..2}
      do
 	  echo ''
      done
      echo "$USER welcom in your to do list"   
 }
 
-#affiche bannner fonction 
+#fonction qui help user a voir differnet options 
+function help(){
+
+}
+#fonction permet d'ajouter une element dans le to do liste
+function Ajout(){
+
+}
+#fonction permet de Supprime task qui exsite dans to do list avec le numero de task
+function Delet(){
+
+}
+#fonction permet de modifie element sur to list 
+function Edit (){
+
+}
+#fonction permet d'affiche to do list
+function Affiche_list(){
+       
+}
+#fonction qui permet de sauvgard le modification effectue sur le list si il exsite si no pas besoine de  appelle  cette methode
+function Sauvgard (){
+
+}
+#fonction permet de sortire sans sauvgarde les modifications 
+function Exit(){
+
+}
 
 # #fonction main point d'excution de programme
 function main (){
      printf "${welcome[*]}"
-     banner 
+     banner
 }
 
 main
