@@ -133,12 +133,9 @@ function Delete(){
       else 
           head -(($taskdelet -1)) do$USER.txt > do$USER.del.txt
           tasknext=$(($taskdelet -1))
-          
+          tail -(($nombre - $tasknext)) do$USER.txt >> do$USER.del.txt
           rm do$USER.txt
           mv do$USER.del.txt do$USER.del.txt
-          tail -(($nombre - $tasknext)) do$USER.txt >> do$USER.txt
-          echo $taskdelet
-          echo "done"
       fi
 }
 #fonction permet de modifie element sur to list 
