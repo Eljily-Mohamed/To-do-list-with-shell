@@ -105,8 +105,9 @@ function Ajout(){
 #fonction permet de Supprime task qui exsite dans to do list avec le numero de task
 function Delete(){
       #on doit delet taks donc on doit recupere l'emplecement de task
+      cd /opt/TODO/
       nombre=`wc -l doeljily.txt | cut -c1`
-      read -p "Numéro de partition (1-$nombre, $nombre par défaut)" taskdelet
+      read -p "Numéro de Task (1-$nombre, $nombre par défaut)" taskdelet
       if [[ -z '$taskdelet' ]]
       then
           taskdelet=$(($nombre))
