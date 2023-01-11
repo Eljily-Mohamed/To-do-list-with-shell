@@ -58,11 +58,17 @@ function banner (){
 
 #fonction qui help user a voir differnet options 
 function help(){
-   echo ''
+    echo ''
 }
 #fonction permet d'ajouter une element dans le to do liste
 function Ajout(){
-   echo ''
+    read -p "ajout title de votre task "
+    #on doit sauvgard le nombres des lignes qui exsite dans le file
+    nbligne=`wc -l doeljily.txt`
+    for i in {$nbligne}
+    do 
+       echo "i = $i"
+    done 
 }
 #fonction permet de Supprime task qui exsite dans to do list avec le numero de task
 function Delet(){
