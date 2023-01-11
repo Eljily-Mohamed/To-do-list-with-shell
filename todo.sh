@@ -80,10 +80,14 @@ function Affiche_list(){
       if [ -f "/opt/TODO/do$USER.txt" ];
       then
         echo "found"
+        cd /opt/TODO/
+        cat do$USER.txt
+        
       else 
         echo "not found"
         cd /opt/TODO/
         touch do$USER.txt
+        Affiche_list
       fi 
 }
 
