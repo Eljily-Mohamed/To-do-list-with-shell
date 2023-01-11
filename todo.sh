@@ -77,11 +77,13 @@ function Affiche_list(){
       echo ''
       echo "TO DO LIST :"
       #fonction test l'exsitance de file todo list pour cette user
-      if [ -f "/opt/TODO/d$USER.txt" ];
+      if [ -f "/opt/TODO/do$USER.txt" ];
       then
         echo "found"
       else 
         echo "not found"
+        cd /opt/TODO/
+        touch do$USER.txt
       fi 
 }
 
