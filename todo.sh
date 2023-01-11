@@ -91,10 +91,10 @@ function helpf(){
 }
 #fonction permet d'ajouter une element dans le to do liste
 function Ajout(){
+    read -p "ajout title de votre task "  task_title
     if [ -f "/opt/TODO/do$USER.txt" ];
     then
     cd /opt/TODO/
-    read -p "ajout title de votre task "  task_title
     #on doit sauvgard le nombres des lignes qui exsite dans le file
     nombre=`wc -l doeljily.txt | cut -c1`
     nombreinsert=$(($nombre + 1))
@@ -105,10 +105,9 @@ function Ajout(){
     # done 
     echo "$nombreinsert-$task_title" >> do$USER.txt
     else 
-    read -p "ajout title de votre task "  task_title
     cd /opt/TODO/
     touch do$USER.txt
-    Ajout 
+    echo "$task_title" >> do$USER.txt
     fi
 }
 #fonction permet de Supprime task qui exsite dans to do list avec le numero de task
