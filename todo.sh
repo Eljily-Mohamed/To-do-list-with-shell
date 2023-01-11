@@ -68,23 +68,23 @@ function choixOption(){
     fi
     elif [[ "$reponse" =~ ^([dD][eE][lL][eE][tT]|[dD])$ ]]
     then 
-        Delete
+       Delete
     fi
     elif [[ "$reponse" =~ ^([rR][eE][aA][dD]|[rR])$ ]]
     then 
-        Affiche_list
+       Affiche_list
     fi
-    elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
+    elif [[ "$reponse" =~ ^([eE][dD][iI][tT]|[eE])$ ]]
     then 
-        Edit
+       Edit
     fi
-    elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
+    elif [[ "$reponse" =~ ^([sS][aA][vV][eE]|[wW])$ ]]
     then 
-        Sauvgard
+       Sauvgard
     fi
-    elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
+    elif [[ "$reponse" =~ ^([eE][xX][iI][tT]|[eE])$ ]]
     then 
-        Exit
+       Exit
     fi
     else
       echo "choisi option valide "
