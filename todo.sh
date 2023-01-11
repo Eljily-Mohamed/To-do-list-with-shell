@@ -131,9 +131,9 @@ function Delete(){
           #tail -$(($nombre - $taskdelet)) >> do$USER.del.txt
           fi
       else 
-          head -(($taskdelet -1)) do$USER.txt > do$USER.del.txt
-          tasknext=$(($taskdelet -1))
-          tail -(($nombre - $tasknext)) do$USER.txt >> do$USER.del.txt
+          tasknext = (($nombre - $taskdelet))
+          head -$(($taskdelet -1)) do$USER.txt | sed '/^[[:space:]]*$/d' > do$USER.del.txt          tasknext=$(($taskdelet-1))
+          tail -$(($nombre - $tasknext)) do$USER.txt >> do$USER.del.txt
           rm do$USER.txt
           mv do$USER.del.txt do$USER.del.txt
       fi
