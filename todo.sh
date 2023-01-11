@@ -35,6 +35,7 @@ line () { printf -v LINE "%$2s"; printf -- "${LINE// /$1}"; } #      |
 cnt () { printf -v _N %$1s; _N=(${_N// / 1}); printf "${!_N[*]}"; } #|
 #--------------------------------------------------------------------+
 
+
 welcome=(''
     $RED" ____      ____  ________  _____       ______    ___   ____    ____  ________      \n"$DEF
     $RED"|_  _|    |_  _||_   __  ||_   _|    .' ___  | .'   \`.|_   \  /   _||_   __  |    \n"$DEF
@@ -51,7 +52,7 @@ function banner (){
      do
 	  echo ''
      done
-     echo "$USER welcom in your to do list"   
+     echo "$USER$BLD welcom in your to do list"   
 }
 
 #fonction qui help user a voir differnet options 
