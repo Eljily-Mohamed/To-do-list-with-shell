@@ -94,6 +94,7 @@ function Ajout(){
     if [ -f "/opt/TODO/do$USER.txt" ];
     then
     cd /opt/TODO/
+    read -p "ajout title de votre task "  task_title
     #on doit sauvgard le nombres des lignes qui exsite dans le file
     nombre=`wc -l doeljily.txt | cut -c1`
     nombreinsert=$(($nombre + 1))
