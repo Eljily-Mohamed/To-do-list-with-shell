@@ -1,9 +1,13 @@
 #!/bin/bash
 #affiche bannner fonction 
 function banner (){
-     echo "Helo in the to do list"
+     echo " $USER welcome in the to do list
 }
-function main {
-    banner ()
+
+
+#fonction main point d'excution de programme
+function main (){
+    banner 
 }
-main()
+
+main
