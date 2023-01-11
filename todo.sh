@@ -52,7 +52,7 @@ function banner (){
      do
 	  echo ''
      done
-     echo -en "\e[1m$USER welcome in your to do list" 
+     echo -en "\e[1m$USER\e[0m welcome in your to do list" 
      echo ''  
 }
 
