@@ -112,7 +112,7 @@ function Delete(){
       then
           taskdelet=$(($nombre))
           #head -l (($taskdelet - 1)) do$USER.txt > do$USER.txt
-          head -3 do$USER.txt
+          head -$(($taskdelet -1 )) do$USER.txt > do$USER.txt
       else 
           #head -(($taskdelet -1)) do$USER.txt > do$USER.txt
           #tail -(($nombre - $taskdelet - 1)) do$USER.txt >> do$USER.txt
