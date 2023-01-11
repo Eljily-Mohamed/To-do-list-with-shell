@@ -46,35 +46,7 @@ welcome=(''
     
 )
 
-#fonction banner permet de specifie User qui lance script
-function choixOption(){
-    read "Commande (m pour l'aide) : "  choix
-    if [[ "$reponse" =~ ^([hH][eE][lL][pP]|[mM])$ ]]
-    then
-       helpf
-    fi
-    elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
-    then 
-        ajouter
-    fi
-    elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
-    then 
-        ajouter
-    fi
-    elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
-    then 
-        ajouter
-    fi
-    elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
-    then 
-        ajouter
-    fi
-    elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
-    then 
-        ajouter
-    fi
-
-}
+#fonction banner permet de specifie User qui lance script 
 function banner (){
      for i in {1..2}
      do
@@ -83,7 +55,35 @@ function banner (){
      echo -en "\e[1m\e[32m$USER\e[0m welcome in your to do list" 
      echo ''  
 }
+#fonction permet  a user de choisie l'option 
+function choixOption(){
+    read "Commande (m pour l'aide) : "  choix
+    if [[ "$reponse" =~ ^([hH][eE][lL][pP]|[mM])$ ]]
+    then
+       helpf
+    fi
+    elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
+    then 
+       Ajout
+    fi
+    elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
+    then 
+        Delete
+    fi
+    elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
+    then 
+        Affiche_list
+    fi
+    elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
+    then 
+        Sauvgard
+    fi
+    elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
+    then 
+        Exit
+    fi
 
+}
 #fonction qui help user a voir differnet options 
 function helpf(){
     echo ''
@@ -102,7 +102,7 @@ function Ajout(){
     echo "$nombreinsert-$task_title" >> do$USER.txt
 }
 #fonction permet de Supprime task qui exsite dans to do list avec le numero de task
-function Delet(){
+function Delete(){
       echo ''
 }
 #fonction permet de modifie element sur to list 
