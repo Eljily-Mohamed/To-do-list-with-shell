@@ -76,7 +76,9 @@ function Edit (){
 function Affiche_list(){
       echo ''
       echo "TO DO LIST :"
-      
+      #fonction test l'exsitance de file todo list pour cette user
+      if[-d /opt/TODO]
+      then
 }
 #fonction qui permet de sauvgard le modification effectue sur le list si il exsite si no pas besoine de  appelle  cette methode
 function Sauvgard (){
