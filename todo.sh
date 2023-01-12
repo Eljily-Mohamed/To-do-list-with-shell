@@ -133,7 +133,7 @@ function Delete(){
       else 
           tasknext=$(($nombre - $taskdelet))
           head -$(($taskdelet -1)) do$USER.txt | sed '/^[[:space:]]*$/d' > do$USER.del.txt
-          tail -$(($nombre - $tasknext)) do$USER.txt >> do$USER.del.txt
+          tail -$(($tasknext)) do$USER.txt >> do$USER.del.txt
           rm do$USER.txt
           compte=0
           while IFS= read -r line; do
@@ -141,7 +141,7 @@ function Delete(){
           task=`echo $line | cut -d '-' -f 2`
           echo "$compte-$task"  >> do$USER.txt
           done <  do$USER.del.txt
-          #rm do$USER.txt
+          rm do$USER.del.txt
           #mv do$USER.del.txt do$USER.txt
       fi
 }
@@ -154,11 +154,19 @@ function Edit (){
       nombre=`wc -l do$USER.txt | cut -c1`
       if [[ $reponseEdit < $nombre ]]
       then
-          echo "helo world in the moument "
-          for  i in $( eval echo {0..$reponseEdit} )
-          do 
-          echo "i = $i"
-          done 
+        for  i in $( eval echo {0..$nombre} )
+        do 
+          if [[ $i != $reponseEdit ]] 
+          then
+             `sed $i!d` >> fileEdit.txt
+          else 
+             `$i!d` | cut -d'-' -f2 >> $string
+             echo "$i-$string" >> fileEdit.txt
+          fi 
+        done
+        #un cas de validation on doit exsite cette commande pour suprimer le  fichier qui exsiet deja et remplace par celui qui stocke le modification 
+        rm do$USER 
+        mv fileEdit.txt do$USER.txt 
       else
          echo "numero ne pas valide "
          sleep 1
