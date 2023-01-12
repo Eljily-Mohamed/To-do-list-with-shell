@@ -110,7 +110,7 @@ function helpf(){
 
 #fonction permet d'ajouter une element dans le to do liste
 function Ajout(){
-    read -p "ajout title de votre task "  task_title
+    read -p "ajout title de votre task : "  task_title
     if [ -f "/opt/TODO/do$USER.txt" ];
     then
     cd /opt/TODO/
@@ -195,17 +195,23 @@ function Edit (){
 #fonction permet d'affiche to do list
 function Affiche_list(){
       echo ''
-      echo "TO DO LIST :"
       #fonction test l'exsitance de file todo list pour cette user
       if [ -f "/opt/TODO/do$USER.txt" ];
       then
+        echo "TO DO LIST :"
         cd /opt/TODO/
-        cat do$USER.txt       
+        nombreA=`wc -l do$USER.txt | cut -c1`
+        if [[ $nombreA -eq 0 ]]
+        then
+           echo "Your to do list  empty"
+        else
+        cat do$USER.txt   
+        fi    
       else 
-        echo "not found"
+        echo "Acune TO DO LIST found "
         cd /opt/TODO/
         touch do$USER.txt
-        Affiche_list
+        echo "TO DO LIST cree Ajout task "
       fi 
 }
 
