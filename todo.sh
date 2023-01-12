@@ -171,7 +171,7 @@ function Edit (){
       read -p "Edit le task numero : " reponseEdit 
       read -p "New task : " reponseNew
       nombre=`wc -l do$USER.txt | cut -c1`
-      if [[ $reponseEdit < $nombre ]]
+      if [[ $reponseEdit <= $nombre ]]
       then
         for  i in $( eval echo {0..$nombre} )
         do 
@@ -228,16 +228,17 @@ function Exit(){
 
 # #fonction main point d'excution de programme
 function main (){
-     clear
-     if [[ -f /opt/TODO/do$USER.txt && $lance == false ]]
-     then 
-         cd /opt/TODO/
-         cp do$USER.txt do$USER.backup.txt
-         $lance == true
-     else 
+    clear
+    #  if [[ -f /opt/TODO/do$USER.txt && $1 == ""  ]]
+    #  then 
+    #      cd /opt/TODO/
+    #      cp do$USER.txt do$USER.backup.txt
+    #      $1 == start
+    #  else 
      printf "${welcome[*]}"
      banner
      choixOption
+    #  fi
 }
 #fonction main point d'excution de programme
 main
