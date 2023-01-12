@@ -136,13 +136,17 @@ function Delete(){
           tail -$(($nombre - $tasknext)) do$USER.txt >> do$USER.del.txt
           rm do$USER.txt
           mv do$USER.del.txt do$USER.txt
+          sorte 'do$USER.txt'
       fi
 }
 
 function sorte (){
-         #argument le nom de fichier 
+         #argument le nom de fichier
+          cd /opt/TODO/ 
           nombre=`wc -l $1 | cut -c1`
-          for i in {1..}
+          while IFS= read -r line; do
+          echo "Text read from file: $line"
+          done < $1
 }
 
 #fonction permet de modifie element sur to list 
