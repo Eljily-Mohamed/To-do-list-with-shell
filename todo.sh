@@ -158,7 +158,7 @@ function Edit (){
         do 
           if [[ $i != $reponseEdit ]] 
           then
-             `sed $i!d` >> fileEdit.txt
+             `sed "$i!d"` >> fileEdit.txt
           else 
              `$i!d` | cut -d'-' -f2 >> $string
              echo "$i-$string" >> fileEdit.txt
