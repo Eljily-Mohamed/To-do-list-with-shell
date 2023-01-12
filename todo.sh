@@ -99,8 +99,8 @@ function helpf(){
     echo "  Générique
    d   supprimer une task
    p   afficher les differentes tasks
-   l   afficher les types de partitions connues
-   n   ajouter une nouvelle partition
+   e   modifier une task precise 
+   t   ajouter une nouvelle task
    p   afficher la table de partitions
    t   modifier le type d'une partition
    v   vérifier la table de partitions
