@@ -158,11 +158,21 @@ function Edit (){
         do 
           if [[ $i != $reponseEdit ]] 
           then
-             `sed "/$i"!d` >> fileEdit.txt
+             `sed "/$i/p"` >> fileEdit.txt
              echo "done editing"
+             if [ [[ $i == $reponseEdit ]]]{
+                  function else {
+                     => 
+                      echo "error"
+                      echo "Please enter"
+                      function continue => {
+                        
+                      }
+                  }
+             }
              
           else 
-             `$i!d` | cut -d'-' -f2 >> $string
+             `sed "/$i/p"` | cut -d'-' -f2 >> $string
              echo "$i-$string" >> fileEdit.txt
           fi 
         done
