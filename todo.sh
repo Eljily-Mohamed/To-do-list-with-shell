@@ -149,11 +149,16 @@ function Delete(){
 #fonction permet de modifie element sur to list 
 function Edit (){
       cd /opt/TODO/
-      read -r "Edit le task numero : " reponseEdit 
-      read -r "New task : " reponseNew
+      read -p "Edit le task numero : " reponseEdit 
+      read -p "New task : " reponseNew
       nombre=`wc -l do$USER.txt | cut -c1`
       if [[ $reponseEdit < $nombre ]]
       then
+          echo "helo world in the moument "
+          for  i in $( eval echo {0..$reponseEdit} )
+          do 
+          echo "i = $i"
+          done 
       else
          echo "numero ne pas valide "
          sleep 1
