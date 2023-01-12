@@ -158,26 +158,14 @@ function Edit (){
         do 
           if [[ $i != $reponseEdit ]] 
           then
-             `sed "/$i/p"` >> fileEdit.txt
-             echo "done editing"
-             if [ [[ $i == $reponseEdit ]]]{
-                  function else {
-                     => 
-                      echo "error"
-                      echo "Please enter"
-                      function continue => {
-                        
-                      }
-                  }
-             }
-             
+             awk "NR==$i" do$USER.txt >> fileEdit.txt
+             echo "done editing" 
           else 
-             `sed "/$i/p"` | cut -d'-' -f2 >> $string
-             echo "$i-$string" >> fileEdit.txt
+             echo "$i-$reponseNew" >> fileEdit.txt
           fi 
         done
         #un cas de validation on doit exsite cette commande pour suprimer le  fichier qui exsiet deja et remplace par celui qui stocke le modification 
-        rm do$USER 
+        rm do$USER.txt
         mv fileEdit.txt do$USER.txt 
       else
          echo "numero ne pas valide "
