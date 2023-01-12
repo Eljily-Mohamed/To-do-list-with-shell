@@ -114,7 +114,7 @@ function Ajout(){
 function Delete(){
       #on doit delet taks donc on doit recupere l'emplecement de task
       cd /opt/TODO/
-      nombre=`wc -l doeljily.txt | cut -c1`
+      nombre=`wc -l do$USER.txt | cut -c1`
       read -p "Numéro de Task (1-$nombre, $nombre par défaut)" taskdelet
       if [[ $taskdelet -eq '' ]]
       then
@@ -136,17 +136,15 @@ function Delete(){
           tail -$(($nombre - $tasknext)) do$USER.txt >> do$USER.del.txt
           rm do$USER.txt
           mv do$USER.del.txt do$USER.txt
-          sorte 'do$USER.txt'
       fi
 }
-
 function sorte (){
          #argument le nom de fichier
           cd /opt/TODO/ 
-          nombre=`wc -l $1 | cut -c1`
+          nombre=`wc -l do$USER.txt | cut -c1`
           while IFS= read -r line; do
           echo "Text read from file: $line"
-          done < $1
+          done < do$USER.txt
 }
 
 #fonction permet de modifie element sur to list 
