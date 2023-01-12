@@ -148,7 +148,17 @@ function Delete(){
 
 #fonction permet de modifie element sur to list 
 function Edit (){
-      echo ''
+      cd /opt/TODO/
+      read -r "Edit le task numero : " reponseEdit 
+      read -r "New task : " reponseNew
+      nombre=`wc -l do$USER.txt | cut -c1`
+      if [[ $reponseEdit < $nombre ]]
+      then
+      else
+         echo "numero ne pas valide "
+         sleep 1
+         Edit
+      fi
 }
 #fonction permet d'affiche to do list
 function Affiche_list(){
