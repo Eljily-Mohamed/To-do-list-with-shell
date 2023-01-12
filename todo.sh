@@ -134,7 +134,7 @@ function Delete(){
       #on doit delet taks donc on doit recupere l'emplecement de task
       cd /opt/TODO/
       nombre=`wc -l do$USER.txt | cut -c1`
-      read -p "Numéro de Task (1-$nombre, $nombre par défaut)" taskdelet
+      read -p "Numéro de Task (1-$nombre, $nombre par défaut) : " taskdelet
       if [[ $taskdelet -eq '' ]]
       then
           if [[ $nombre -eq '1' ]]
@@ -217,16 +217,24 @@ function Affiche_list(){
 
 #fonction qui permet de sauvgard le modification effectue sur le list si il exsite si no pas besoine de  appelle  cette methode
 function Sauvgard (){
-    echo ''
+    exit
 }
 #fonction permet de sortire sans sauvgarde les modifications 
 function Exit(){
-    echo ''
+    cd /opt/TODO/
+    rm do$USER.txt
+    mv do$USER.backup.txt do$USER 
 }
 
 # #fonction main point d'excution de programme
 function main (){
      clear
+     if [[ -f /opt/TODO/do$USER.txt && $lance == false ]]
+     then 
+         cd /opt/TODO/
+         cp do$USER.txt do$USER.backup.txt
+         $lance == true
+     else 
      printf "${welcome[*]}"
      banner
      choixOption
