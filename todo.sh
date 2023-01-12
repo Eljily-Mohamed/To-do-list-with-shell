@@ -100,12 +100,11 @@ function helpf(){
    d   supprimer une task
    p   afficher les differentes tasks
    e   modifier une task precise 
-   t   ajouter une nouvelle task
-   p   afficher la table de partitions
-   t   modifier le type d'une partition
-   v   vérifier la table de partitions
-   i   Afficher des renseignements sur la partition"
-
+   t   ajouter une nouvelle task "
+    echo "  Sauvegarder et quitter
+   w   écrire la nouveau modification et quitter
+   q   quitter sans enregistrer les modifications
+   
 }
 
 #fonction permet d'ajouter une element dans le to do liste
