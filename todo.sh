@@ -171,7 +171,7 @@ function Edit (){
       read -p "Edit le task numero : " reponseEdit 
       read -p "New task : " reponseNew
       nombre=`wc -l do$USER.txt | cut -c1`
-      if [[ $reponseEdit <= $nombre ]]
+      if [[ $reponseEdit -ge $nombre ]]
       then
         for  i in $( eval echo {0..$nombre} )
         do 
