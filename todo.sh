@@ -135,20 +135,15 @@ function Delete(){
           head -$(($taskdelet -1)) do$USER.txt | sed '/^[[:space:]]*$/d' > do$USER.del.txt
           tail -$(($nombre - $tasknext)) do$USER.txt >> do$USER.del.txt
           rm do$USER.txt
-          mv do$USER.del.txt do$USER.txt
-          sorte
-      fi
-}
-function sorte (){
-         #argument le nom de fichier
-          cd /opt/TODO/ 
-          #declare compteur
           compte=0
           while IFS= read -r line; do
           compte=$(($compte+1))
-          task=cut -f 2 $line
-          echo "$compte-$task" 
-          done < do$USER.txt
+          task=`echo $line | cut -d '-' -f 2`
+          echo "$compte-$task"  >> do$USER.txt
+          done <  do$USER.del.txt
+          #rm do$USER.txt
+          #mv do$USER.del.txt do$USER.txt
+      fi
 }
 
 #fonction permet de modifie element sur to list 
