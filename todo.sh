@@ -62,8 +62,8 @@ function choixOption(){
     read -p "Commande (m pour l'aide) : "  reponse
     if [[ "$reponse" =~ ^([hH][eE][lL][pP]|[mM])$ ]]
     then
-       helpf 
-       sleep 10
+       helpf
+       read -n1 kbd
        main
     elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
     then 
@@ -76,6 +76,7 @@ function choixOption(){
     elif [[ "$reponse" =~ ^([rR][eE][aA][dD]|[rR])$ ]]
     then 
        Affiche_list
+       read -n1 kbd
        main
     elif [[ "$reponse" =~ ^([eE][dD][iI][tT]|[eE])$ ]]
     then 
@@ -98,13 +99,13 @@ function helpf(){
     echo ""
     echo "  Générique
    d   supprimer une task
-   p   afficher les differentes tasks
+   r   afficher les differentes tasks
    e   modifier une task precise 
    t   ajouter une nouvelle task "
     echo "  Sauvegarder et quitter
    w   écrire la nouveau modification et quitter
    q   quitter sans enregistrer les modifications"
-   
+
 }
 
 #fonction permet d'ajouter une element dans le to do liste
@@ -198,7 +199,6 @@ function Affiche_list(){
       #fonction test l'exsitance de file todo list pour cette user
       if [ -f "/opt/TODO/do$USER.txt" ];
       then
-        echo "found"
         cd /opt/TODO/
         cat do$USER.txt       
       else 
