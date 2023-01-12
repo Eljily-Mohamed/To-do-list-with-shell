@@ -103,7 +103,7 @@ function helpf(){
    t   ajouter une nouvelle task "
     echo "  Sauvegarder et quitter
    w   écrire la nouveau modification et quitter
-   q   quitter sans enregistrer les modifications
+   q   quitter sans enregistrer les modifications"
    
 }
 
