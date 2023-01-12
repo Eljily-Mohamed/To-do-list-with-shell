@@ -1,4 +1,6 @@
 #!/bin/bash
+#variable Generale --------------------------------------------------+
+termine=0
 #--------------------------------------------------------------------+
 #Color picker, usage: printf ${BLD}${CUR}${RED}${BBLU}"Hello!)"${DEF}|
 #-------------------------+--------------------------------+---------+
@@ -60,19 +62,25 @@ function choixOption(){
     read -p "Commande (m pour l'aide) : "  reponse
     if [[ "$reponse" =~ ^([hH][eE][lL][pP]|[mM])$ ]]
     then
-       helpf
+       helpf 
+       sleep 10
+       main
     elif [[ "$reponse" =~ ^([tT][aA][sS][kK]|[tT])$ ]]
     then 
        Ajout
+       main
     elif [[ "$reponse" =~ ^([dD][eE][lL][eE][tT]|[dD])$ ]]
     then 
        Delete
+       main
     elif [[ "$reponse" =~ ^([rR][eE][aA][dD]|[rR])$ ]]
     then 
        Affiche_list
+       main
     elif [[ "$reponse" =~ ^([eE][dD][iI][tT]|[eE])$ ]]
     then 
        Edit
+       main
     elif [[ "$reponse" =~ ^([sS][aA][vV][eE]|[wW])$ ]]
     then 
        Sauvgard
@@ -87,8 +95,18 @@ function choixOption(){
 }
 #fonction qui help user a voir differnet options 
 function helpf(){
-    echo ''
+    echo "  Générique
+   d   supprimer la partition
+   F   afficher l’espace libre non partitionné
+   l   afficher les types de partitions connues
+   n   ajouter une nouvelle partition
+   p   afficher la table de partitions
+   t   modifier le type d'une partition
+   v   vérifier la table de partitions
+   i   Afficher des renseignements sur la partition"
+
 }
+
 #fonction permet d'ajouter une element dans le to do liste
 function Ajout(){
     read -p "ajout title de votre task "  task_title
@@ -207,5 +225,5 @@ function main (){
      banner
      choixOption
 }
-
+#fonction main point d'excution de programme
 main
