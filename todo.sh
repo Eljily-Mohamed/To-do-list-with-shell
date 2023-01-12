@@ -131,13 +131,20 @@ function Delete(){
           #tail -$(($nombre - $taskdelet)) >> do$USER.del.txt
           fi
       else 
-          tasknext = (($nombre - $taskdelet))
-          head -$(($taskdelet -1)) do$USER.txt | sed '/^[[:space:]]*$/d' > do$USER.del.txt          tasknext=$(($taskdelet-1))
+          tasknext=$(($nombre - $taskdelet))
+          head -$(($taskdelet -1)) do$USER.txt | sed '/^[[:space:]]*$/d' > do$USER.del.txt
           tail -$(($nombre - $tasknext)) do$USER.txt >> do$USER.del.txt
           rm do$USER.txt
-          mv do$USER.del.txt do$USER.del.txt
+          mv do$USER.del.txt do$USER.txt
       fi
 }
+
+function sorte (){
+         #argument le nom de fichier 
+          nombre=`wc -l $1 | cut -c1`
+          for i in {1..}
+}
+
 #fonction permet de modifie element sur to list 
 function Edit (){
       echo ''
