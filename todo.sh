@@ -95,9 +95,10 @@ function choixOption(){
 }
 #fonction qui help user a voir differnet options 
 function helpf(){
+    echo ""
     echo "  Générique
-   d   supprimer la partition
-   F   afficher l’espace libre non partitionné
+   d   supprimer une task
+   p   afficher les differentes tasks
    l   afficher les types de partitions connues
    n   ajouter une nouvelle partition
    p   afficher la table de partitions
