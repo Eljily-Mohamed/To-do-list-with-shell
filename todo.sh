@@ -136,14 +136,18 @@ function Delete(){
           tail -$(($nombre - $tasknext)) do$USER.txt >> do$USER.del.txt
           rm do$USER.txt
           mv do$USER.del.txt do$USER.txt
+          sorte
       fi
 }
 function sorte (){
          #argument le nom de fichier
           cd /opt/TODO/ 
-          nombre=`wc -l do$USER.txt | cut -c1`
+          #declare compteur
+          compte=0
           while IFS= read -r line; do
-          echo "Text read from file: $line"
+          compte=$(($compte+1))
+          task=cut -f 2 $line
+          echo "$compte-$task" 
           done < do$USER.txt
 }
 
