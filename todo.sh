@@ -53,8 +53,7 @@ function banner (){
      for i in {1..2}
      do
 	  echo ''
-     done
-     echo -en "\e[1m\e[32m$USER\e[0m welcome in your to do list" 
+     done 
      echo ''  
 }
 #fonction permet  a user de choisie l'option 
@@ -85,7 +84,7 @@ function choixOption(){
     elif [[ "$reponse" =~ ^([sS][aA][vV][eE]|[wW])$ ]]
     then 
        Sauvgard
-    elif [[ "$reponse" =~ ^([eE][xX][iI][tT]|[eE])$ ]]
+    elif [[ "$reponse" =~ ^([eE][xX][iI][tT]|[qQ])$ ]]
     then 
        Exit
     else
@@ -171,7 +170,7 @@ function Edit (){
       read -p "Edit le task numero : " reponseEdit 
       read -p "New task : " reponseNew
       nombre=`wc -l do$USER.txt | cut -c1`
-      if [[ $reponseEdit -ge $nombre ]]
+      if [[ $nombre -gt  $reponseEdit ]] 
       then
         for  i in $( eval echo {0..$nombre} )
         do 
@@ -196,7 +195,7 @@ function Edit (){
 function Affiche_list(){
       echo ''
       #fonction test l'exsitance de file todo list pour cette user
-      if [ -f "/opt/TODO/do$USER.txt" ];
+      if [ -f "/opt/TODO/do$USER.txt" ]
       then
         echo "TO DO LIST :"
         cd /opt/TODO/
@@ -217,28 +216,35 @@ function Affiche_list(){
 
 #fonction qui permet de sauvgard le modification effectue sur le list si il exsite si no pas besoine de  appelle  cette methode
 function Sauvgard (){
+    echo "modification bien sauvgarde"
     exit
 }
 #fonction permet de sortire sans sauvgarde les modifications 
 function Exit(){
+    if [ -f "/opt/TODO/do$USER.backup.txt" ];
     cd /opt/TODO/
+    then
     rm do$USER.txt
-    mv do$USER.backup.txt do$USER 
+    mv do$USER.backup.txt do$USER
+    rm do$USER.backup.txt
+    else
+    rm do$USER.txt
+    fi
+    exit
 }
 
 # #fonction main point d'excution de programme
 function main (){
     clear
-    #  if [[ -f /opt/TODO/do$USER.txt && $1 == ""  ]]
-    #  then 
-    #      cd /opt/TODO/
-    #      cp do$USER.txt do$USER.backup.txt
-    #      $1 == start
-    #  else 
+    if [[ -f /opt/TODO/do$USER.txt ]]
+    then 
+           cd /opt/TODO/
+           cp do$USER.txt do$USER.backup.txt
+   
+     fi
      printf "${welcome[*]}"
      banner
      choixOption
-    #  fi
 }
 #fonction main point d'excution de programme
 main
