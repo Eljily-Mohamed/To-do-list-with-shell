@@ -97,10 +97,10 @@ function choixOption(){
 function helpf(){
     echo ""
     echo "  Générique
-   d   supprimer une task
-   r   afficher les differentes tasks
-   e   modifier une task precise 
-   t   ajouter une nouvelle task "
+   d   supprimer une tâche
+   r   afficher les differentes tâches
+   e   modifier une tâche precise 
+   t   ajouter une nouvelle tâche "
     echo "  Sauvegarder et quitter
    w   écrire la nouveau modification et quitter
    q   quitter sans enregistrer les modifications"
@@ -109,7 +109,7 @@ function helpf(){
 
 #fonction permet d'ajouter une element dans le to do liste
 function Ajout(){
-    read -p "ajout title de votre task : "  task_title
+    read -p "ajout title de votre tâche : "  tâche_title
     if [ -f "/opt/TODO/do$USER.txt" ];
     then
     cd /opt/TODO/
@@ -121,43 +121,43 @@ function Ajout(){
     # do 
     #    echo "i = $i"
     # done 
-    echo "$nombreinsert-$task_title" >> do$USER.txt
+    echo "$nombreinsert-$tâche_title" >> do$USER.txt
     else 
     cd /opt/TODO/
     touch do$USER.txt
-    echo "1-$task_title" >> do$USER.txt
+    echo "1-$tâche_title" >> do$USER.txt
     fi
 }
-#fonction permet de Supprime task qui exsite dans to do list avec le numero de task
+#fonction permet de Supprime tâche qui exsite dans to do list avec le numero de tâche
 function Delete(){
-      #on doit delet taks donc on doit recupere l'emplecement de task
+      #on doit delet taks donc on doit recupere l'emplecement de tâche
       cd /opt/TODO/
       nombre=`wc -l do$USER.txt | cut -c1`
-      read -p "Numéro de Task (1-$nombre, $nombre par défaut) : " taskdelet
-      if [[ $taskdelet -eq '' ]]
+      read -p "Numéro de tâche (1-$nombre, $nombre par défaut) : " tâchedelet
+      if [[ $tâchedelet -eq '' ]]
       then
           if [[ $nombre -eq '1' ]]
           then
-          taskdelet=$(($nombre))
+          tâchedelet=$(($nombre))
           rm do$USER.txt
           else
-          taskdelet=$(($nombre))
-          #head -l (($taskdelet - 1)) do$USER.txt > do$USER.txt
-          head -$(($taskdelet -1)) do$USER.txt | sed '/^[[:space:]]*$/d' > do$USER.del.txt
+          tâchedelet=$(($nombre))
+          #head -l (($tâchedelet - 1)) do$USER.txt > do$USER.txt
+          head -$(($tâchedelet -1)) do$USER.txt | sed '/^[[:space:]]*$/d' > do$USER.del.txt
           rm do$USER.txt 
           mv do$USER.del.txt do$USER.txt
-          #tail -$(($nombre - $taskdelet)) >> do$USER.del.txt
+          #tail -$(($nombre - $tâchedelet)) >> do$USER.del.txt
           fi
       else 
-          tasknext=$(($nombre - $taskdelet))
-          head -$(($taskdelet -1)) do$USER.txt | sed '/^[[:space:]]*$/d' > do$USER.del.txt
-          tail -$(($tasknext)) do$USER.txt >> do$USER.del.txt
+          tâchenext=$(($nombre - $tâchedelet))
+          head -$(($tâchedelet -1)) do$USER.txt | sed '/^[[:space:]]*$/d' > do$USER.del.txt
+          tail -$(($tâchenext)) do$USER.txt >> do$USER.del.txt
           rm do$USER.txt
           compte=0
           while IFS= read -r line; do
           compte=$(($compte+1))
-          task=`echo $line | cut -d '-' -f 2`
-          echo "$compte-$task"  >> do$USER.txt
+          tâche=`echo $line | cut -d '-' -f 2`
+          echo "$compte-$tâche"  >> do$USER.txt
           done <  do$USER.del.txt
           rm do$USER.del.txt
           #mv do$USER.del.txt do$USER.txt
@@ -167,8 +167,8 @@ function Delete(){
 #fonction permet de modifie element sur to list 
 function Edit (){
       cd /opt/TODO/
-      read -p "Edit le task numero : " reponseEdit 
-      read -p "New task : " reponseNew
+      read -p "Edit le tâche numero : " reponseEdit 
+      read -p "Nouvelle tâche: " reponseNew
       nombre=`wc -l do$USER.txt | cut -c1`
       if [[ $nombre -gt  $reponseEdit ]] 
       then
@@ -177,7 +177,7 @@ function Edit (){
           if [[ $i != $reponseEdit ]] 
           then
              awk "NR==$i" do$USER.txt >> fileEdit.txt
-             echo "done editing" 
+             echo "La liste de tâches a été modifiée avec succès" 
           else 
              echo "$i-$reponseNew" >> fileEdit.txt
           fi 
@@ -186,7 +186,7 @@ function Edit (){
         rm do$USER.txt
         mv fileEdit.txt do$USER.txt 
       else
-         echo "numero ne pas valide "
+         echo "Le numéro de la tâche n'est pas valide. Veuillez entrer un numéro valide"
          sleep 1
          Edit
       fi
@@ -202,7 +202,7 @@ function Affiche_list(){
         nombreA=`wc -l do$USER.txt | cut -c1`
         if [[ $nombreA -eq 0 ]]
         then
-           echo "Your to do list  empty"
+           echo "Votre liste de tâches vide"
         else
         cat do$USER.txt   
         fi    
@@ -210,7 +210,7 @@ function Affiche_list(){
         echo "Acune TO DO LIST found "
         cd /opt/TODO/
         touch do$USER.txt
-        echo "TO DO LIST cree Ajout task "
+        echo "Une liste de tâches a été créée. Vous pouvez y ajouter des éléments. "
       fi 
 }
 
