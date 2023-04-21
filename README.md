@@ -8,15 +8,15 @@ This project is a command-line tool that helps you keep track of your tasks by c
 and view tasks with ease, all from the comfort of your terminal. This project is perfect for anyone who wants a simple and effective way to manage their
 tasks without the need for a graphical user interface.
 
-##Prerequisites
+## Prerequisites
 This project requires that you have a Linux-based operating system with Bash shell installed.
 
-##Installation
+## Installation
 To install this project, simply clone the repository from GitHub using the following command:
 
   git clone https://github.com/your-username/todo_list.git
 
-U#usage
+# usage
 
 To use the to-do list, navigate to the project directory in your terminal and run the following command:
 
